@@ -1,0 +1,34 @@
+<?php
+
+function mymodule_block_info(){
+    $blocks['myblock'] = array(
+            'info' => "Our first block",
+
+        );
+    return $blocks;
+}
+
+function mymodule_block_view($delta = ''){
+    switch ($delta){
+        case 'myblock':
+            $block['content'] =  myblock_view();
+            break;
+    }
+    return $block;
+}
+
+function myblock_view(){
+
+    $nodes = node_load_multiple(array(), array('type' => 'car_info', 'status' => 1));;
+
+    return theme('myblock', array('nodes'=>$nodes));
+}
+
+function mymodule_theme(){
+    return array(
+        'myblock' => array(
+            'template' => 'myblock',
+            'variables' => array('nodes' => array()),
+        )
+    );
+}

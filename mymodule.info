@@ -1,0 +1,11 @@
+name = My first module
+description = "Test description"
+package = Our Package
+core = 7.x
+files[] = mymodule.module
+; Information added by drupal.org packaging script on 2013-01-02
+version = "7.x-1.3"
+core = "7.x"
+project = "my module"
+datestamp = "1357159949"
+
